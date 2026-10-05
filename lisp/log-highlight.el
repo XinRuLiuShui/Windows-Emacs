@@ -63,6 +63,12 @@
   (when (and buffer-file-name
              (string-match-p "\\.log\\'" buffer-file-name))
 
+    ;; .log 文件不自动换行
+    (setq-local truncate-lines t)
+
+    ;; 显示横向滚动条
+    (horizontal-scroll-bar-mode 1)
+    
     (font-lock-add-keywords
      nil
      '(("\\_<sending\\_>" (0 'my-log-sending-face))
