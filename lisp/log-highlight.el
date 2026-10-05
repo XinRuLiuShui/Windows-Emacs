@@ -89,5 +89,17 @@
 
 (add-hook 'find-file-hook #'my-log-highlight)
 
+;; ==============================
+;; 横向滚动条
+;; ==============================
+
+(defun my-log-horizontal-scroll-bar ()
+  "Show horizontal scrollbar only for .log files."
+  (if (and buffer-file-name
+           (string-match-p "\\.log\\'" buffer-file-name))
+      (horizontal-scroll-bar-mode 1)
+    (horizontal-scroll-bar-mode -1)))
+
+(add-hook 'buffer-list-update-hook #'my-log-horizontal-scroll-bar)
 
 (provide 'log-highlight)
