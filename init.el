@@ -64,3 +64,5 @@
 
 ;; 加载日志高亮
 (require 'log-highlight)
+
+(require 'my-files)
